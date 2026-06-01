@@ -52,9 +52,11 @@ stdenv.mkDerivation {
       --disable-nls \
       --target=mips-harvard-os161 \
       --prefix=$out \
-      --with-gmp=${gmp.dev} \
-      --with-mpfr=${mpfr.dev} \
-      --with-mpc=${libmpc}
+      --with-gmp=${gmp} \
+      --with-mpfr=${mpfr} \
+      --with-mpc=${libmpc} \
+      --with-as=${os161-binutils}/bin/mips-harvard-os161-as \
+      --with-ld=${os161-binutils}/bin/mips-harvard-os161-ld
     make -j$NIX_BUILD_CORES
   '';
 
